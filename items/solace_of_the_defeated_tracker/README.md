@@ -2,7 +2,7 @@ Tracker for trinket Solace of the Defeated
 
 ## Screenshot
 
-![Tracker for trinket Solace of the Defeated]([/assets/images/tux.png](https://github.com/niklasdotnet/weakauras/blob/main/items/solace_of_the_defeated_tracker/solace_of_the_defeated_tracker.jpg))
+![Tracker for trinket Solace of the Defeated]([/assets/images/tux.png](https://github.com/niklasdotnet/weakauras/blob/main/items/solace_of_the_defeated_tracker/solace_of_the_defeated_tracker.jpg)
 
 ## Import string
 
