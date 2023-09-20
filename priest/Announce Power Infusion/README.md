@@ -2,7 +2,7 @@ Announcer for Power Infusion (whisper)
 
 ## Screenshot
 
-![](https://github.com/niklasdotnet/weakauras/blob/main/items/solace_of_the_defeated_tracker/solace_of_the_defeated_tracker.jpg?raw=true)
+![](https://github.com/niklasdotnet/weakauras/blob/main/priest/Announce%20Power%20Infusion/power%20infusion%20announcer.jpg?raw=true)
 
 ## Import string
 
