@@ -1,8 +1,8 @@
 Announcer for Pain Suppression
 
-Announces in:
-	- party
-	- raid
+Announces in (one of):
+- party
+- raid
 
 ## Screenshot
 
