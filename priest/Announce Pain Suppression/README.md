@@ -6,7 +6,7 @@ Announces in:
 
 ## Screenshot
 
-![](https://github.com/niklasdotnet/weakauras/blob/main/items/solace_of_the_defeated_tracker/solace_of_the_defeated_tracker.jpg?raw=true)
+![](https://github.com/niklasdotnet/weakauras/blob/main/priest/Announce%20Pain%20Suppression/pain%20suppression%20announcer.jpg?raw=true)
 
 ## Import string
 
