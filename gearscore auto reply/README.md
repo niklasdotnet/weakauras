@@ -16,8 +16,8 @@ function(event, ...)
     end
     
     -- CONFIGURATION VARIABLES:
-    -- to prevent spamming people, we put senders on cooldown for an amout of time in seconds:
-    local COOLDOWN_TIME = 10
+    -- to prevent spamming people, we put senders on cooldown for an amout of time:
+    local COOLDOWN_TIME = 60 -- in seconds
     -- keywords that triggers a reply
     local KEYWORDS = {'gs?', 'gs??', 'gs ?', 'gs ??', 'gearscore?', 'gearscore??', 'gearscore ?', 'gearscore ??'}
     -- character name and gearscore value
