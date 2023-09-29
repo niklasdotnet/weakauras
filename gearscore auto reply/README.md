@@ -1,9 +1,9 @@
-** Gearscore Auto Reply
+# Gearscore Auto Reply
 
-*** Steps:
+##### Steps:
 1. Make a new weakaura
-2. Add trigger, choose Type: Custom, Event Type: Event
-3. Event(s) enter CHAT_MSG_WHISPER
+2. Add trigger, choose Type: **Custom**, Event Type: **Event**
+3. Event(s) enter **CHAT_MSG_WHISPER**
 4. Custom trigger, paste this code:
 
 ```
