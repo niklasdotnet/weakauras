@@ -3,9 +3,9 @@
 ##### Steps:
 1. Make a new weakaura
 2. Add trigger, choose:
-	a. Type: **Custom**
-	b. Event Type: **Event**
-	c. Event(s): **CHAT_MSG_WHISPER**
+    a. Type: **Custom**
+    b. Event Type: **Event**
+    c. Event(s): **CHAT_MSG_WHISPER**
 3. Under Custom trigger, paste this code:
 
 ```
