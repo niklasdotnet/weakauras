@@ -7,46 +7,82 @@
    2. Event Type: **Event**
    3. Event(s): **CHAT_MSG_WHISPER**
 3. Under Custom trigger, paste this code:
+4. Modify variables under CONFIGURATION VARIABLES according to your needs
 
 ```
-function( event, ... )
-	if event ~= "CHAT_MSG_WHISPER" then
-		return false
-    	end
-
-	-- your trigger keywords, feel free to change:
-	local keywords = {'gs?', 'gearscore?'}
-	local msg, sender = ...
-	local player  = UnitName("player")
-	local gs = nil
+function(event, ...)
+    if event ~= "CHAT_MSG_WHISPER" then
+        return false
+    end
     
-	-- your character name(s) and gearscore value(s)
-	local my_characters = {
-		Patatosa = "5300-5500", 
-        	Pataat = "5200",
-	}
+    -- CONFIGURATION VARIABLES:
+    -- to prevent spamming people, we put senders on cooldown for an amout of time in seconds:
+    local COOLDOWN_TIME = 10
+    -- keywords that triggers a reply
+    local KEYWORDS = {'gs?', 'gs??', 'gs ?', 'gs ??', 'gearscore?', 'gearscore??', 'gearscore ?', 'gearscore ??'}
+    -- character name and gearscore value
+    local MY_CHARACTERS = {
+        Patatosa = "5300",
+        Pataat = "5200",
+    }
     
-    	gs = my_characters[player]
+    -- CODE:
+    local msg, sender = ...
+    local player = UnitName("player")
+    local gs = nil
+    local sender_on_cooldown = false
     
-    	if gs == nil then
-        	return false        
-    	end
+    if sender == player then
+        return false
+    end
     
-	local contains_keyword = false
-
-    	for _, keyword in ipairs(keywords) do
-        	if msg:lower() == keyword:lower() then
-            		contains_keyword = true
-            		break
-        	end
-    	end
-
-	if contains_keyword == false then
-        	return false
-	end
-
-	SendChatMessage("My gs is ~"..gs..".", "whisper", nil, sender)
+    gs = MY_CHARACTERS[player]
+    
+    if gs == nil then
+        return false
+    end
+    
+    if aura_env.cooldown == nil then
+        aura_env.cooldown = {}
+    else
+        local current_time = GetTime()
+        for k, v in pairs(aura_env.cooldown) do
+            if v.sender == sender then
+                if current_time - v.timestamp < COOLDOWN_TIME then
+                    sender_on_cooldown = true
+                else
+                    table.remove(aura_env.cooldown, k)
+                end
+                break
+            end
+        end
+    end
+    
+    if sender_on_cooldown then
+        return false
+    end
+    
+    msg = " " .. msg .. " "
+    
+    local contains_keyword = false
+    local kw
+    for _, keyword in ipairs(KEYWORDS) do
+        kw = keyword:lower():gsub("?", "%%?")
+        if string.find(msg:lower(), kw) then
+            contains_keyword = true
+            break
+        end
+    end
+    
+    if contains_keyword == false then
+        return false
+    end
+    
+    SendChatMessage("My gs is ~" .. gs, "whisper", nil, sender)
+    
+    table.insert(aura_env.cooldown, { sender = sender, timestamp = GetTime() })
+    
+    return true
 end
-
 ```
 
