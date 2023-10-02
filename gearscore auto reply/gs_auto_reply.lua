@@ -32,17 +32,17 @@ function(event, ...)
     
     if aura_env.cooldown == nil then
         aura_env.cooldown = {}
-    else
-        local current_time = GetTime()
-        for k, v in pairs(aura_env.cooldown) do
-            if v.sender == sender then
-                if current_time - v.timestamp < COOLDOWN_TIME then
-                    sender_on_cooldown = true
-                else
-                    table.remove(aura_env.cooldown, k)
-                end
-                break
+    end
+    
+    local current_time = GetTime()
+    for k, v in pairs(aura_env.cooldown) do
+        if v.sender == sender then
+            if current_time - v.timestamp < COOLDOWN_TIME then
+                sender_on_cooldown = true
+            else
+                table.remove(aura_env.cooldown, k)
             end
+            break
         end
     end
     
