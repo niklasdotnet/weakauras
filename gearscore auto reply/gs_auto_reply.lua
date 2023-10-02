@@ -19,14 +19,9 @@ function(event, ...)
     local player = UnitName("player")
     local gs = nil
     local sender_on_cooldown = false
-    
-    if sender == player then
-        return false
-    end
-    
     gs = MY_CHARACTERS[player]
     
-    if gs == nil then
+    if sender == player or gs == nil then
         return false
     end
     
@@ -65,10 +60,11 @@ function(event, ...)
     if contains_keyword == false then
         return false
     end
-    
-    SendChatMessage("My gs is ~" .. gs, "whisper", nil, sender)
-    
+
+    -- add sender to cooldown table
     table.insert(aura_env.cooldown, { sender = sender, timestamp = GetTime() })
+    -- whisper the reply to sender
+    SendChatMessage("My gs is ~" .. gs, "whisper", nil, sender)
     
     return true
 end
