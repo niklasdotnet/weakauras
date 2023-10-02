@@ -9,3 +9,4 @@ Some nifty weakauras.
 
 **Lua code:**
 * [Gearscore Auto Reply](https://github.com/niklasdotnet/weakauras/tree/main/gearscore%20auto%20reply)
+  Modify code to add characters + gs
